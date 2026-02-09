@@ -30,6 +30,7 @@ def signup(user: SignupCreate, db: Session = Depends(get_db)):
 
 def authenticate_user(db: Session, email: str, password: str):
     user = db.query(Signup).filter(Signup.email == email).first()
+    print("authenticate")
     if not user:
         return None
     if not verify_password(password, user.password):
