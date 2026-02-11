@@ -17,6 +17,7 @@ router = APIRouter(
     prefix="/employees",
     tags=["Employees"]
 )
+print("employee service folder executed")
 
 
 @router.post(
