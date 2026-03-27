@@ -11,6 +11,7 @@ def create_employee(db: Session, emp: EmployeeCreate):
     existing_emp = db.query(Employee).filter(
         Employee.Email == emp.Email
     ).first()
+    
 
     if existing_emp:
         raise HTTPException(
@@ -26,6 +27,7 @@ def create_employee(db: Session, emp: EmployeeCreate):
         JobTitle=emp.JobTitle,
         Salary=emp.Salary
     )
+    print("Employee is created in the data base")
 
     db.add(new_emp)
     db.commit()
